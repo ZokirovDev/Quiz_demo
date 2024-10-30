@@ -1,0 +1,13 @@
+<resources>
+    <declare-styleable name="HexagonView">
+        <attr name="characterSymbol" format="string" />
+        <attr name="isGradientEnabled" format="boolean" />
+        <attr name="shadowColor" format="color" />
+        <attr name="android:fontFamily" />
+        <attr name="gradientStartColor" format="color" />
+        <attr name="gradientEndColor" format="color" />
+        <attr name="shadowRadius" format="dimension" /> <!-- New attribute for shadow radius -->
+        <attr name="shadowX" format="dimension" /> <!-- New attribute for shadow offset X -->
+        <attr name="shadowY" format="dimension" /> <!-- New attribute for shadow offset Y -->
+    </declare-styleable>
+</resources>

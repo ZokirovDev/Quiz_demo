@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatButton
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/FilledButtonStyle"
+    android:background="@drawable/bg_unfill_btn"
+    android:textColor="@color/white" />

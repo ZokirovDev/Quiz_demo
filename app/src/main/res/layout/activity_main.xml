@@ -3,254 +3,207 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@drawable/bg_first_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_first_screen"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvQuiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quize"
-        android:id="@+id/tvQuiz"
-        android:textSize="72sp"
-        android:textColor="@color/white"
-        android:letterSpacing="0.15"
         android:fontFamily="@font/gilroy_bold"
-        app:layout_constraintTop_toTopOf="parent"
+        android:letterSpacing="0.15"
+        android:text="Quize"
+        android:textColor="@color/white"
+        android:textSize="72sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.2"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="36dp"
         android:layout_height="42dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="-12dp"
         android:src="@drawable/ic_crown_svg"
-        app:layout_constraintTop_toTopOf="@id/tvQuiz"
-        app:layout_constraintStart_toStartOf="@id/tvQuiz"/>
+        app:layout_constraintStart_toStartOf="@id/tvQuiz"
+        app:layout_constraintTop_toTopOf="@id/tvQuiz" />
+
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvDesc"
-        android:text="Join our daily challange and win\nspecial gift just for you"
         android:fontFamily="@font/gilroy_medium"
+        android:text="Join our daily challange and win\nspecial gift just for you"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/tvQuiz"
-        app:layout_constraintStart_toStartOf="@id/tvQuiz"
         app:layout_constraintEnd_toEndOf="@id/tvQuiz"
-        android:textAlignment="center"
-        app:lineHeight="24dp"/>
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_1_1"
-        app:layout_constraintEnd_toStartOf="@id/iv_1_2"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/tvDesc"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/SelectedButtonStyle" />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:text="Q"
-        app:layout_constraintTop_toTopOf="@id/iv_1_1"
-        app:layout_constraintStart_toStartOf="@id/iv_1_1"
-        app:layout_constraintEnd_toEndOf="@id/iv_1_1"
-        app:layout_constraintBottom_toBottomOf="@id/iv_1_1"
-        style="@style/SelectedTextStyle" />
+        app:layout_constraintStart_toStartOf="@id/tvQuiz"
+        app:layout_constraintTop_toBottomOf="@id/tvQuiz"
+        app:lineHeight="24dp" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_1_2"
-        app:layout_constraintTop_toBottomOf="@id/tvDesc"
-        app:layout_constraintStart_toEndOf="@id/iv_1_1"
-        app:layout_constraintEnd_toStartOf="@id/iv_1_3"
+    <uz.gita.quiz_demo.custom_view.HexagonView
+        android:id="@+id/hv_1_1"
+        style="@style/HexagonStyle"
+        android:layout_marginTop="32dp"
+        app:characterSymbol="Q"
+        android:padding="0dp"
+        app:layout_constraintEnd_toStartOf="@id/hv_1_2"
         app:layout_constraintHorizontal_chainStyle="packed"
-        style="@style/UnselectedButtonStyle" />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:text="U"
-        app:layout_constraintTop_toTopOf="@id/iv_1_2"
-        app:layout_constraintStart_toStartOf="@id/iv_1_2"
-        app:layout_constraintEnd_toEndOf="@id/iv_1_2"
-        app:layout_constraintBottom_toBottomOf="@id/iv_1_2"
-        style="@style/UnselectedTextStyle" />
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_1_3"
-        app:layout_constraintEnd_toStartOf="@id/iv_1_4"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/tvDesc"
-        app:layout_constraintStart_toEndOf="@id/iv_1_2"
-        style="@style/UnselectedButtonStyle"/>
-    <androidx.appcompat.widget.AppCompatTextView
-        style="@style/UnselectedTextStyle"
-        android:text="R"
-        app:layout_constraintTop_toTopOf="@id/iv_1_3"
-        app:layout_constraintStart_toStartOf="@id/iv_1_3"
-        app:layout_constraintEnd_toEndOf="@id/iv_1_3"
-        app:layout_constraintBottom_toBottomOf="@id/iv_1_3"
-        />
-    <androidx.appcompat.widget.AppCompatImageView
-        style="@style/UnselectedButtonStyle"
-        android:id="@+id/iv_1_4"
-        app:layout_constraintTop_toBottomOf="@id/tvDesc"
-        app:layout_constraintStart_toEndOf="@id/iv_1_3"
-        app:layout_constraintEnd_toStartOf="@id/iv_1_5"
-        app:layout_constraintHorizontal_chainStyle="packed" />
-    <androidx.appcompat.widget.AppCompatTextView
-        style="@style/UnselectedTextStyle"
-        android:text="N"
-        app:layout_constraintTop_toTopOf="@id/iv_1_4"
-        app:layout_constraintStart_toStartOf="@id/iv_1_4"
-        app:layout_constraintEnd_toEndOf="@id/iv_1_4"
-        app:layout_constraintBottom_toBottomOf="@id/iv_1_4" />
-    <androidx.appcompat.widget.AppCompatImageView
-        style="@style/UnselectedButtonStyle"
-        android:id="@+id/iv_1_5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/tvDesc"
-        app:layout_constraintStart_toEndOf="@id/iv_1_4"
-        />
-    <androidx.appcompat.widget.AppCompatTextView
-        style="@style/UnselectedTextStyle"
-        android:text="T"
-        app:layout_constraintTop_toTopOf="@id/iv_1_5"
-        app:layout_constraintStart_toStartOf="@id/iv_1_5"
-        app:layout_constraintEnd_toEndOf="@id/iv_1_5"
-        app:layout_constraintBottom_toBottomOf="@id/iv_1_5"
-        />
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_2_1"
-        app:layout_constraintEnd_toStartOf="@id/iv_2_2"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/iv_1_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDesc" />
+
+    <uz.gita.quiz_demo.custom_view.HexagonView
+        android:id="@+id/hv_1_2"
+        style="@style/HexagonStyle"
+        app:characterSymbol="U"
+        android:padding="0dp"
         android:layout_margin="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/SelectedButtonStyle" />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:text="U"
-        app:layout_constraintTop_toTopOf="@id/iv_2_1"
-        app:layout_constraintStart_toStartOf="@id/iv_2_1"
-        app:layout_constraintEnd_toEndOf="@id/iv_2_1"
-        app:layout_constraintBottom_toBottomOf="@id/iv_2_1"
-        style="@style/SelectedTextStyle" />
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_2_2"
-        app:layout_constraintEnd_toStartOf="@id/iv_2_3"
+        app:isGradientEnabled="false"
+        app:layout_constraintBottom_toBottomOf="@id/hv_1_1"
+        app:layout_constraintEnd_toStartOf="@id/hv_1_3"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/iv_1_1"
-       android:layout_margin="0dp"
-        app:layout_constraintStart_toEndOf="@id/iv_2_1"
-        style="@style/SelectedButtonStyle" />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:text="I"
-        app:layout_constraintTop_toTopOf="@id/iv_2_2"
-        app:layout_constraintStart_toStartOf="@id/iv_2_2"
-        app:layout_constraintEnd_toEndOf="@id/iv_2_2"
-        app:layout_constraintBottom_toBottomOf="@id/iv_2_2"
-        style="@style/SelectedTextStyle" />
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_2_3"
-        app:layout_constraintEnd_toStartOf="@id/iv_2_4"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/iv_1_1"
-       android:layout_margin="0dp"
-        app:layout_constraintStart_toEndOf="@id/iv_2_2"
-        style="@style/SelectedButtonStyle" />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:text="Z"
-        app:layout_constraintTop_toTopOf="@id/iv_2_3"
-        app:layout_constraintStart_toStartOf="@id/iv_2_3"
-        app:layout_constraintEnd_toEndOf="@id/iv_2_3"
-        app:layout_constraintBottom_toBottomOf="@id/iv_2_3"
-        style="@style/SelectedTextStyle" />
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_2_4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/iv_1_1"
-       android:layout_margin="0dp"
-        app:layout_constraintStart_toEndOf="@id/iv_2_3"
-        style="@style/UnselectedButtonStyle" />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:text="R"
-        app:layout_constraintTop_toTopOf="@id/iv_2_4"
-        app:layout_constraintStart_toStartOf="@id/iv_2_4"
-        app:layout_constraintEnd_toEndOf="@id/iv_2_4"
-        app:layout_constraintBottom_toBottomOf="@id/iv_2_4"
-        style="@style/UnselectedTextStyle" />
+        app:layout_constraintStart_toEndOf="@id/hv_1_1"
+        app:layout_constraintTop_toTopOf="@id/hv_1_1" />
 
-<!--    3-line  -->
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_3_1"
-        app:layout_constraintEnd_toStartOf="@id/iv_3_2"
+    <uz.gita.quiz_demo.custom_view.HexagonView
+        android:id="@+id/hv_1_3"
+        style="@style/HexagonStyle"
+        app:characterSymbol="R"
+        app:isGradientEnabled="false"
+        app:layout_constraintBottom_toBottomOf="@id/hv_1_1"
+        app:layout_constraintEnd_toStartOf="@id/hv_1_4"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/iv_2_1"
-       android:layout_margin="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/UnselectedButtonStyle" />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:text="K"
-        app:layout_constraintTop_toTopOf="@id/iv_3_1"
-        app:layout_constraintStart_toStartOf="@id/iv_3_1"
-        app:layout_constraintEnd_toEndOf="@id/iv_3_1"
-        app:layout_constraintBottom_toBottomOf="@id/iv_3_1"
-        style="@style/UnselectedTextStyle" />
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_3_2"
-        app:layout_constraintEnd_toStartOf="@id/iv_3_3"
+        app:layout_constraintStart_toEndOf="@id/hv_1_2"
+        app:layout_constraintTop_toTopOf="@id/hv_1_1" />
+
+    <uz.gita.quiz_demo.custom_view.HexagonView
+        android:id="@+id/hv_1_4"
+        style="@style/HexagonStyle"
+        app:characterSymbol="N"
+        app:isGradientEnabled="false"
+        app:layout_constraintBottom_toBottomOf="@id/hv_1_1"
+        app:layout_constraintEnd_toStartOf="@id/hv_1_5"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/iv_2_1"
-       android:layout_margin="0dp"
-        app:layout_constraintStart_toEndOf="@id/iv_3_1"
-        style="@style/UnselectedButtonStyle" />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:text="N"
-        app:layout_constraintTop_toTopOf="@id/iv_3_2"
-        app:layout_constraintStart_toStartOf="@id/iv_3_2"
-        app:layout_constraintEnd_toEndOf="@id/iv_3_2"
-        app:layout_constraintBottom_toBottomOf="@id/iv_3_2"
-        style="@style/UnselectedTextStyle" />
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_3_3"
+        app:layout_constraintStart_toEndOf="@id/hv_1_3"
+        app:layout_constraintTop_toTopOf="@id/hv_1_1" />
+
+    <uz.gita.quiz_demo.custom_view.HexagonView
+        android:id="@+id/hv_1_5"
+        style="@style/HexagonStyle"
+        app:characterSymbol="T"
+        app:isGradientEnabled="false"
+        app:layout_constraintBottom_toBottomOf="@id/hv_1_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/iv_2_1"
-       android:layout_margin="0dp"
-        app:layout_constraintStart_toEndOf="@id/iv_3_2"
-        style="@style/SelectedButtonStyle" />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:text="E"
-        app:layout_constraintTop_toTopOf="@id/iv_3_3"
-        app:layout_constraintStart_toStartOf="@id/iv_3_3"
-        app:layout_constraintEnd_toEndOf="@id/iv_3_3"
-        app:layout_constraintBottom_toBottomOf="@id/iv_3_3"
-        style="@style/SelectedTextStyle" />
-<!--    Buttons   -->
+        app:layout_constraintStart_toEndOf="@id/hv_1_4"
+        app:layout_constraintTop_toTopOf="@id/hv_1_1" />
+    <!--    2-line -->
+    <uz.gita.quiz_demo.custom_view.HexagonView
+        android:id="@+id/hv_2_1"
+        style="@style/HexagonStyle"
+        app:characterSymbol="U"
+        android:layout_marginTop="-10dp"
+        app:layout_constraintEnd_toStartOf="@id/hv_2_2"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hv_1_1" />
+
+    <uz.gita.quiz_demo.custom_view.HexagonView
+        android:id="@+id/hv_2_2"
+        style="@style/HexagonStyle"
+        app:characterSymbol="I"
+        app:layout_constraintBottom_toBottomOf="@id/hv_2_1"
+        app:layout_constraintEnd_toStartOf="@id/hv_2_3"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/hv_2_1"
+        app:layout_constraintTop_toTopOf="@id/hv_2_1" />
+
+    <uz.gita.quiz_demo.custom_view.HexagonView
+        android:id="@+id/hv_2_3"
+        style="@style/HexagonStyle"
+        app:characterSymbol="Z"
+        app:layout_constraintBottom_toBottomOf="@id/hv_2_1"
+        app:layout_constraintEnd_toStartOf="@id/hv_2_4"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/hv_2_2"
+        app:layout_constraintTop_toTopOf="@id/hv_2_1" />
+
+    <uz.gita.quiz_demo.custom_view.HexagonView
+        android:id="@+id/hv_2_4"
+        style="@style/HexagonStyle"
+        app:characterSymbol="R"
+        app:isGradientEnabled="false"
+        app:layout_constraintBottom_toBottomOf="@id/hv_2_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/hv_2_3"
+        app:layout_constraintTop_toTopOf="@id/hv_2_1" />
+    <!--    3-line  -->
+    <uz.gita.quiz_demo.custom_view.HexagonView
+        android:id="@+id/hv_3_1"
+        style="@style/HexagonStyle"
+        app:characterSymbol="K"
+        app:isGradientEnabled="false"
+        android:layout_marginTop="-10dp"
+        app:layout_constraintEnd_toStartOf="@id/hv_3_2"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hv_2_1" />
+
+    <uz.gita.quiz_demo.custom_view.HexagonView
+        android:id="@+id/hv_3_2"
+        style="@style/HexagonStyle"
+        app:characterSymbol="N"
+        app:isGradientEnabled="false"
+        app:layout_constraintBottom_toBottomOf="@id/hv_3_1"
+        app:layout_constraintEnd_toStartOf="@id/hv_3_3"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/hv_3_1"
+        app:layout_constraintTop_toTopOf="@id/hv_3_1" />
+
+    <uz.gita.quiz_demo.custom_view.HexagonView
+        android:id="@+id/hv_3_3"
+        style="@style/HexagonStyle"
+        app:characterSymbol="E"
+        app:layout_constraintBottom_toBottomOf="@id/hv_3_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/hv_3_2"
+        app:layout_constraintTop_toTopOf="@id/hv_3_1" />
+
+    <!--    Buttons   -->
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="0dp"
         android:id="@+id/btnPlay"
+        android:layout_width="0dp"
         android:layout_height="64dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_primary_btn"
+        android:fontFamily="@font/gilroy_bold"
         android:text="Play"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:fontFamily="@font/gilroy_bold"
         android:textSize="18sp"
-        android:background="@drawable/bg_primary_btn"
         app:layout_constraintBottom_toTopOf="@id/btnHowToPlay"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintStart_toStartOf="@id/iv_1_1"
-        app:layout_constraintEnd_toEndOf="@id/iv_1_5"/>
+        app:layout_constraintEnd_toEndOf="@id/hv_1_5"
+        app:layout_constraintStart_toStartOf="@id/hv_1_1" />
+
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="0dp"
         android:id="@+id/btnHowToPlay"
+        android:layout_width="0dp"
         android:layout_height="64dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/bg_secondary_btn"
+        android:fontFamily="@font/gilroy_bold"
         android:text="How to play"
         android:textAllCaps="false"
         android:textColor="@color/cloudy_blue"
-        android:fontFamily="@font/gilroy_bold"
         android:textSize="18sp"
-        android:background="@drawable/bg_secondary_btn"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintStart_toStartOf="@id/iv_1_1"
-        app:layout_constraintEnd_toEndOf="@id/iv_1_5"/>
+        app:layout_constraintEnd_toEndOf="@id/hv_1_5"
+        app:layout_constraintStart_toStartOf="@id/hv_1_1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

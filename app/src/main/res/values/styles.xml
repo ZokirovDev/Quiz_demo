@@ -19,17 +19,17 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="UnselectedButtonStyle">
-        <item name="tint">@color/white</item>
-        <item name="android:background">?android:selectableItemBackgroundBorderless</item>
-        <item name="android:layout_width">55dp</item>
-        <item name="android:layout_height">55dp</item>
-        <item name="android:rotation">-32</item>
-        <item name="android:src">@drawable/img_simple_btn</item>
-        <item name="android:layout_marginTop">32dp</item>
-    </style>
+<!--    <style name="VariantButtonStyle">-->
+<!--        <item name="tint">@color/white</item>-->
+<!--        <item name="android:background">?android:selectableItemBackgroundBorderless</item>-->
+<!--        <item name="android:layout_width">55dp</item>-->
+<!--        <item name="android:layout_height">55dp</item>-->
+<!--        <item name="android:rotation">-32</item>-->
+<!--        <item name="android:src">@drawable/img_simple_btn</item>-->
+<!--        <item name="android:layout_marginTop">32dp</item>-->
+<!--    </style>-->
 
-    <style name="UnselectedTextStyle">
+    <style name="VariantTextStyle">
         <item name="android:textAllCaps">true</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -44,9 +44,28 @@
 
     <style name="FilledButtonStyle">
         <item name="android:layout_margin">4dp</item>
-        <item name="android:layout_width">45dp</item>
-        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">55dp</item>
         <item name="android:fontFamily">@font/gilroy_bold</item>
         <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="HexagonStyle">
+        <item name="shadowY">0dp</item>
+        <item name="shadowX">2dp</item>
+        <item name="shadowRadius">2dp</item>
+        <item name="shadowColor">#EE5A5ACC</item>
+        <item name="android:layout_width">55dp</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:fontFamily">@font/gilroy_bold</item>
+    </style>
+    <style name="VariantButtonStyle">
+        <item name="shadowY">0dp</item>
+        <item name="shadowX">1dp</item>
+        <item name="shadowRadius">1dp</item>
+        <item name="shadowColor">@color/cloudy_blue</item>
+        <item name="android:layout_width">55dp</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:fontFamily">@font/gilroy_bold</item>
     </style>
 </resources>
