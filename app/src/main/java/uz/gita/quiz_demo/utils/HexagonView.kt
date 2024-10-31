@@ -99,8 +99,8 @@ class HexagonView @JvmOverloads constructor(
     init {
         attrs?.let {
             val typedArray = context.obtainStyledAttributes(it, R.styleable.HexagonView)
-            symbol = typedArray.getString(R.styleable.HexagonView_characterSymbol) ?: symbol
-            isGradientEnabled = typedArray.getBoolean(R.styleable.HexagonView_isGradientEnabled, true)
+            symbol = typedArray.getString(R.styleable.HexagonView_text) ?: symbol
+            isGradientEnabled = typedArray.getBoolean(R.styleable.HexagonView_isSelected, true)
             shadowColor = typedArray.getColor(R.styleable.HexagonView_shadowColor, shadowColor)
 
             shadowRadius = typedArray.getDimension(R.styleable.HexagonView_shadowRadius, shadowRadius)

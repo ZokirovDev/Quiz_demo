@@ -28,7 +28,6 @@ class QuizActivity : AppCompatActivity() {
     private val binding get() = _binding!!
     private var currentIndex = 0
     private var correctCount = 0
-    private lateinit var spacer: Space
     private var tts: TextToSpeech? = null
     private var answerButtons = mutableListOf<AppCompatButton>()
     private var variantButtons = mutableListOf<HexagonView>()
@@ -62,7 +61,8 @@ class QuizActivity : AppCompatActivity() {
             if (currentIndex == quizList.lastIndex) {
                 showResultDialog()
             } else {
-                currentIndex++;loadDataToViews()
+                currentIndex++
+                loadDataToViews()
             }
         }
     }
@@ -71,8 +71,6 @@ class QuizActivity : AppCompatActivity() {
         binding.btnSound.isEnabled = false
         binding.progress.max = quizList.size
         tts = TextToSpeech(this, TtsListener(tts, binding.btnSound))
-        spacer = LayoutInflater.from(this)
-            .inflate(R.layout.item_spacer, binding.answerGroup, false) as Space
         variantButtons.add(binding.hv11)
         variantButtons.add(binding.hv12)
         variantButtons.add(binding.hv13)
@@ -134,14 +132,18 @@ class QuizActivity : AppCompatActivity() {
         dialog.isCancelable = false
         dialog.show(supportFragmentManager, "Result")
         dialog.apply {
-            setOnMenuClickListener { dismiss();finish() }
+            setOnMenuClickListener { dismiss();finish();clearChangesFromList() }
             setOnReplayClickListener {
                 currentIndex = 0
-                quizList.forEach { it.isFilled = false }
+                clearChangesFromList()
                 loadDataToViews()
                 dismiss()
             }
         }
+    }
+
+    private fun clearChangesFromList() {
+        quizList.forEach { it.isFilled = false }
     }
 
     private fun clickAnswer(button: AppCompatButton) {

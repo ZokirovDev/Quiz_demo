@@ -1,7 +1,7 @@
 <resources>
     <declare-styleable name="HexagonView">
-        <attr name="characterSymbol" format="string" />
-        <attr name="isGradientEnabled" format="boolean" />
+        <attr name="text" format="string" />
+        <attr name="isSelected" format="boolean" />
         <attr name="shadowColor" format="color" />
         <attr name="android:fontFamily" />
         <attr name="gradientStartColor" format="color" />
