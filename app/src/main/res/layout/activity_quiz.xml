@@ -12,6 +12,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
+        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/bianca"
@@ -121,7 +122,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_1_1"
         style="@style/VariantButtonStyle"
         android:layout_marginTop="16dp"
@@ -133,7 +134,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/card" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_1_2"
         style="@style/VariantButtonStyle"
         app:characterSymbol="U"
@@ -146,7 +147,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_1_1"
         app:layout_constraintTop_toTopOf="@id/hv_1_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_1_3"
         style="@style/VariantButtonStyle"
         app:characterSymbol="R"
@@ -157,7 +158,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_1_2"
         app:layout_constraintTop_toTopOf="@id/hv_1_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_1_4"
         style="@style/VariantButtonStyle"
         app:characterSymbol="N"
@@ -168,7 +169,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_1_3"
         app:layout_constraintTop_toTopOf="@id/hv_1_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_1_5"
         style="@style/VariantButtonStyle"
         app:characterSymbol="T"
@@ -178,7 +179,7 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/hv_1_4"
         app:layout_constraintTop_toTopOf="@id/hv_1_1" />
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_1_6"
         style="@style/VariantButtonStyle"
         app:characterSymbol="T"
@@ -189,7 +190,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_1_5"
         app:layout_constraintTop_toTopOf="@id/hv_1_1" />
     <!--    2-line -->
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_2_1"
         style="@style/VariantButtonStyle"
         app:characterSymbol="U"
@@ -200,7 +201,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hv_1_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_2_2"
         style="@style/VariantButtonStyle"
         app:characterSymbol="I"
@@ -211,7 +212,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_2_1"
         app:layout_constraintTop_toTopOf="@id/hv_2_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_2_3"
         style="@style/VariantButtonStyle"
         app:characterSymbol="Z"
@@ -222,7 +223,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_2_2"
         app:layout_constraintTop_toTopOf="@id/hv_2_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_2_4"
         style="@style/VariantButtonStyle"
         app:characterSymbol="R"
@@ -232,7 +233,7 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/hv_2_3"
         app:layout_constraintTop_toTopOf="@id/hv_2_1" />
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_2_5"
         style="@style/VariantButtonStyle"
         app:characterSymbol="R"
@@ -243,7 +244,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_2_4"
         app:layout_constraintTop_toTopOf="@id/hv_2_1" />
     <!--    3-line  -->
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_3_1"
         style="@style/VariantButtonStyle"
         app:characterSymbol="K"
@@ -254,7 +255,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hv_2_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_3_2"
         style="@style/VariantButtonStyle"
         app:characterSymbol="N"
@@ -265,7 +266,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_3_1"
         app:layout_constraintTop_toTopOf="@id/hv_3_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_3_3"
         style="@style/VariantButtonStyle"
         app:characterSymbol="E"
@@ -275,7 +276,7 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/hv_3_2"
         app:layout_constraintTop_toTopOf="@id/hv_3_1" />
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_3_4"
         style="@style/VariantButtonStyle"
         app:characterSymbol="E"
@@ -288,6 +289,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/card"
         app:layout_constraintStart_toStartOf="@id/card"

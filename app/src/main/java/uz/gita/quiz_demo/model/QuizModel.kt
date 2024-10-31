@@ -3,5 +3,6 @@ package uz.gita.quiz_demo.model
 data class QuizModel(
     val imageRes:Int,
     val variant:String,
-    val answer:String
+    val answer:String,
+    var isFilled:Boolean = false
 )

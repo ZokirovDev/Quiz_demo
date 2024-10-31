@@ -1,25 +1,33 @@
 package uz.gita.quiz_demo
 
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
+import android.view.animation.AnimationUtils
 import android.widget.Space
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import uz.gita.quiz_demo.custom_view.HexagonView
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import uz.gita.quiz_demo.databinding.ActivityQuizBinding
+import uz.gita.quiz_demo.dialogs.ResultDialog
 import uz.gita.quiz_demo.model.QuizModel
+import uz.gita.quiz_demo.utils.HexagonView
+import uz.gita.quiz_demo.utils.TtsListener
 
 class QuizActivity : AppCompatActivity() {
     private var _binding: ActivityQuizBinding? = null
     private val binding get() = _binding!!
     private var currentIndex = 0
+    private var correctCount = 0
     private lateinit var spacer: Space
     private var tts: TextToSpeech? = null
     private var answerButtons = mutableListOf<AppCompatButton>()
@@ -35,6 +43,11 @@ class QuizActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
         initViews()
         initActions()
         loadDataToViews()
@@ -47,7 +60,7 @@ class QuizActivity : AppCompatActivity() {
         binding.btnPrev.setOnClickListener { currentIndex--;loadDataToViews() }
         binding.btnNext.setOnClickListener {
             if (currentIndex == quizList.lastIndex) {
-                Toast.makeText(this, "Finish!", Toast.LENGTH_SHORT).show()
+                showResultDialog()
             } else {
                 currentIndex++;loadDataToViews()
             }
@@ -78,23 +91,56 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun loadDataToViews() {
-        binding.answerGroup.removeAllViews()
         manageBottomButtons()
-        answerButtons.clear()
-        binding.tvLevel.text = "${currentIndex + 1}"
+        binding.tvLevel.text = (currentIndex + 1).toString()
         binding.progress.progress = currentIndex + 1
         binding.imgQuiz.setImageResource(quizList[currentIndex].imageRes)
-        quizList[currentIndex].answer.forEach { sign ->
-            val answer = LayoutInflater.from(this)
+        updateAnswerButtons(quizList[currentIndex].answer)
+        updateVariantButtons(quizList[currentIndex].variant)
+    }
+
+    private fun updateAnswerButtons(answer: String) {
+        binding.answerGroup.removeAllViews()
+        answerButtons.clear()
+        answer.forEachIndexed { index, sign ->
+            val newAnswer = LayoutInflater.from(this)
                 .inflate(R.layout.item_answer, binding.answerGroup, false) as AppCompatButton
-            answer.setOnClickListener { clickAnswer(answer) }
-            answerButtons.add(answer)
-            binding.answerGroup.addView(answer)
+            newAnswer.setOnClickListener { clickAnswer(newAnswer) }
+            checkAnswerButtonIsFilled(sign.toString(), newAnswer)
+            answerButtons.add(newAnswer)
+            binding.answerGroup.addView(newAnswer)
         }
-        quizList[currentIndex].variant.forEachIndexed { index, sign ->
+    }
+
+    private fun updateVariantButtons(variant: String) {
+        variant.forEachIndexed { index, sign ->
             variantButtons[index].symbol = sign.toString()
             variantButtons[index].isGradientEnabled = false
             variantButtons[index].isEnabled = true
+        }
+    }
+
+    private fun checkAnswerButtonIsFilled(sign: String, answer: AppCompatButton) {
+        if (quizList[currentIndex].isFilled) {
+            answer.text = sign.toString()
+            answer.setBackgroundResource(R.drawable.bg_fill_correct_btn)
+        } else {
+            answer.setBackgroundResource(R.drawable.bg_unfill_btn)
+        }
+    }
+
+    private fun showResultDialog() {
+        val dialog = ResultDialog(quizList.size, correctCount)
+        dialog.isCancelable = false
+        dialog.show(supportFragmentManager, "Result")
+        dialog.apply {
+            setOnMenuClickListener { dismiss();finish() }
+            setOnReplayClickListener {
+                currentIndex = 0
+                quizList.forEach { it.isFilled = false }
+                loadDataToViews()
+                dismiss()
+            }
         }
     }
 
@@ -106,6 +152,7 @@ class QuizActivity : AppCompatActivity() {
                     button.text = ""
                     variantButtons.isGradientEnabled = false
                     variantButtons.isEnabled = true
+                    setDefault()
                     return
                 }
             }
@@ -130,22 +177,58 @@ class QuizActivity : AppCompatActivity() {
         val ans = StringBuilder()
         answerButtons.forEach { ans.append(it.text) }
         if (ans.toString().lowercase() == quizList[currentIndex].answer.lowercase()) {
-            Toast.makeText(this, "You Win!", Toast.LENGTH_SHORT).show()
+            quizList[currentIndex].isFilled = true
+            noticeCorrectAnswer()
         } else if (ans.toString().length == quizList[currentIndex].answer.length) {
-            Toast.makeText(this, "Answer is wrong!", Toast.LENGTH_SHORT).show()
+            noticeWrongAnswer()
+        } else {
+            setDefault()
+        }
+    }
+
+    private fun setDefault() {
+        if (answerButtons.first().currentTextColor == Color.RED) {
+            answerButtons.forEach { answerButton ->
+                answerButton.setTextColor(Color.WHITE)
+            }
+        }
+    }
+
+    private fun noticeWrongAnswer() {
+        val vibrator = this.getSystemService("vibrator") as Vibrator
+        if (Build.VERSION.SDK_INT >= 26) {
+            vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            vibrator.vibrate(200)
+        }
+        answerButtons.forEach { answerButton ->
+            val animation = AnimationUtils.loadAnimation(this, R.anim.vibrate_animation)
+            answerButton.startAnimation(animation)
+            answerButton.setTextColor(Color.RED)
+        }
+    }
+
+    private fun noticeCorrectAnswer() {
+        correctCount++
+        answerButtons.forEach { answerButton ->
+            val animation = AnimationUtils.loadAnimation(this, R.anim.scale_animation)
+            answerButton.startAnimation(animation)
+            answerButton.setBackgroundResource(R.drawable.bg_fill_correct_btn)
         }
     }
 
     private fun manageBottomButtons() {
-        if (currentIndex == 0) {
-            binding.btnPrev.visibility = View.GONE
-        } else if (currentIndex == quizList.lastIndex) {
-            binding.btnPrev.visibility = View.VISIBLE
-            binding.btnNext.text = "Finish"
-        } else {
-            binding.btnPrev.visibility = View.VISIBLE
-            binding.btnNext.text = "Next"
+        when (currentIndex) {
+            0 -> binding.btnPrev.visibility = View.GONE
+            quizList.lastIndex -> {
+                binding.btnPrev.visibility = View.VISIBLE
+                binding.btnNext.text = "Finish"
+            }
 
+            else -> {
+                binding.btnPrev.visibility = View.VISIBLE
+                binding.btnNext.text = "Next"
+            }
         }
     }
 

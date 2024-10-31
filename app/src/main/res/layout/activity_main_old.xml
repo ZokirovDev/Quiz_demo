@@ -235,13 +235,13 @@
         android:fontFamily="@font/gilroy_bold"
         android:textSize="18sp"
         android:background="@drawable/bg_primary_btn"
-        app:layout_constraintBottom_toTopOf="@id/btnHowToPlay"
+        app:layout_constraintBottom_toTopOf="@id/btnInfoScreen"
         android:layout_marginBottom="16dp"
         app:layout_constraintStart_toStartOf="@id/iv_1_1"
         app:layout_constraintEnd_toEndOf="@id/iv_1_5"/>
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="0dp"
-        android:id="@+id/btnHowToPlay"
+        android:id="@+id/btnInfoScreen"
         android:layout_height="64dp"
         android:text="How to play"
         android:textAllCaps="false"

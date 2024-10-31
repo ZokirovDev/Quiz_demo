@@ -1,3 +1,39 @@
 <resources>
     <string name="app_name">Quiz_demo</string>
+    <string name="info_desc"><![CDATA[
+<h2>Inglizcha So‘z Topish O‘yini</h2>
+<br>
+<p>
+  Ekranda ko‘rsatilgan rasmga mos keluvchi inglizcha so‘zni toping. So‘zni tanlaganingizda, uning talaffuzini tinglash imkoniyati mavjud.
+  Agar javob noto‘g‘ri bo‘lsa, tanlangan harflar qizil rangga aylanadi.
+</p>
+<br>
+<ul>
+  <li>Har bir darajada yangi rasm va so‘zlar</li>
+  <li>To‘g‘ri so‘zning talaffuzini tinglash imkoniyati</li>
+  <li>Noto‘g‘ri javoblar qizil rangda ko‘rsatiladi</li>
+</ul>
+<br>
+<h2>Foydalanilgan manbaalar</h2>
+<br>
+<p>
+  Dasturda ishlatilgan dizayn  <a href="https://dribbble.com/shots/17444278-Quize-Game-Mobile-App">dribble.com</a>
+  web sahifasidan beg`araz olindi.
+</p>
+<br>
+<h2>Biz bilan bog`lanish</h2>
+<br>
+<ul>
+<li>
+  <dd>
+   <a href="https://t.me/gitauz">GITA dasturchilar akademiyasining telegram sahifasi</a>
+  </dd>
+  </li>
+  <li>
+  <dd>
+  <a href="https://www.youtube.com/@gitauzofficial">GITA dasturchilar akademiyasining You Tube sahifasi</a>
+  </dd>
+  </li>
+</ul>
+]]></string>
 </resources>

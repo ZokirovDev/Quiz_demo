@@ -1,4 +1,4 @@
-package uz.gita.quiz_demo.custom_view
+package uz.gita.quiz_demo.utils
 
 import android.annotation.SuppressLint
 import android.content.Context

@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvQuiz"
         app:lineHeight="24dp" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_1_1"
         style="@style/HexagonStyle"
         android:layout_marginTop="32dp"
@@ -57,7 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDesc" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_1_2"
         style="@style/HexagonStyle"
         app:characterSymbol="U"
@@ -70,7 +70,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_1_1"
         app:layout_constraintTop_toTopOf="@id/hv_1_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_1_3"
         style="@style/HexagonStyle"
         app:characterSymbol="R"
@@ -81,7 +81,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_1_2"
         app:layout_constraintTop_toTopOf="@id/hv_1_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_1_4"
         style="@style/HexagonStyle"
         app:characterSymbol="N"
@@ -92,7 +92,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_1_3"
         app:layout_constraintTop_toTopOf="@id/hv_1_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_1_5"
         style="@style/HexagonStyle"
         app:characterSymbol="T"
@@ -103,7 +103,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_1_4"
         app:layout_constraintTop_toTopOf="@id/hv_1_1" />
     <!--    2-line -->
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_2_1"
         style="@style/HexagonStyle"
         app:characterSymbol="U"
@@ -113,7 +113,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hv_1_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_2_2"
         style="@style/HexagonStyle"
         app:characterSymbol="I"
@@ -123,7 +123,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_2_1"
         app:layout_constraintTop_toTopOf="@id/hv_2_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_2_3"
         style="@style/HexagonStyle"
         app:characterSymbol="Z"
@@ -133,7 +133,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_2_2"
         app:layout_constraintTop_toTopOf="@id/hv_2_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_2_4"
         style="@style/HexagonStyle"
         app:characterSymbol="R"
@@ -144,7 +144,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_2_3"
         app:layout_constraintTop_toTopOf="@id/hv_2_1" />
     <!--    3-line  -->
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_3_1"
         style="@style/HexagonStyle"
         app:characterSymbol="K"
@@ -155,7 +155,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hv_2_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_3_2"
         style="@style/HexagonStyle"
         app:characterSymbol="N"
@@ -166,7 +166,7 @@
         app:layout_constraintStart_toEndOf="@id/hv_3_1"
         app:layout_constraintTop_toTopOf="@id/hv_3_1" />
 
-    <uz.gita.quiz_demo.custom_view.HexagonView
+    <uz.gita.quiz_demo.utils.HexagonView
         android:id="@+id/hv_3_3"
         style="@style/HexagonStyle"
         app:characterSymbol="E"
@@ -188,18 +188,18 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/btnHowToPlay"
+        app:layout_constraintBottom_toTopOf="@id/btnInfoScreen"
         app:layout_constraintEnd_toEndOf="@id/hv_1_5"
         app:layout_constraintStart_toStartOf="@id/hv_1_1" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnHowToPlay"
+        android:id="@+id/btnInfoScreen"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/bg_secondary_btn"
         android:fontFamily="@font/gilroy_bold"
-        android:text="How to play"
+        android:text="Info"
         android:textAllCaps="false"
         android:textColor="@color/cloudy_blue"
         android:textSize="18sp"

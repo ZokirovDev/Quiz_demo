@@ -1,4 +1,4 @@
-package uz.gita.quiz_demo
+package uz.gita.quiz_demo.utils
 
 import android.speech.tts.TextToSpeech
 import android.util.Log
